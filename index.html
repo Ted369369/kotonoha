@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>言の葉日文課</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="topbar">
+  <button class="icon-btn menu-btn" data-act="menu" aria-label="開啟課程目錄" aria-expanded="false">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+  </button>
+  <a class="brand" href="#home"><span class="brand-ja" lang="ja">言の葉</span><span class="brand-zh">日文課</span></a>
+  <nav class="topnav" aria-label="主要">
+    <a href="#home" data-nav="home">首頁</a>
+    <a href="#songs" data-nav="songs">歌單</a>
+    <a href="#dict" data-nav="dict">單字大全</a>
+    <a href="#works" data-nav="works">出處索引</a>
+    <a href="#cards" data-nav="cards">單字卡</a>
+    <a href="#kana" data-nav="kana">假名練習</a>
+  </nav>
+  <form class="search" role="search" id="search-form">
+    <label for="q" class="sr">搜尋</label>
+    <input id="q" type="search" placeholder="搜尋課程、例句、作品…" autocomplete="off">
+  </form>
+  <div class="toggles">
+    <button class="pill-btn" data-act="furi" id="btn-furi" title="切換振假名（讀音標示）"><span class="pill-k" lang="ja"><ruby>振<rt>ふ</rt></ruby></span><span class="pill-v" id="furi-label">顯示</span></button>
+    <button class="pill-btn" data-act="zh" id="btn-zh" title="切換中文翻譯"><span class="pill-k">譯</span><span class="pill-v" id="zh-label">顯示</span></button>
+    <button class="icon-btn" data-act="settings" aria-label="設定" aria-expanded="false" id="btn-settings">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.8v2.6M12 18.6v2.6M2.8 12h2.6M18.6 12h2.6M5.5 5.5l1.8 1.8M16.7 16.7l1.8 1.8M5.5 18.5l1.8-1.8M16.7 7.3l1.8-1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="settings" id="settings" hidden>
+    <div class="set-row">
+      <span class="set-k">振假名</span>
+      <div class="seg" data-set="furi">
+        <button data-v="show">顯示</button><button data-v="hover">滑過才顯示</button><button data-v="hide">隱藏</button>
+      </div>
+    </div>
+    <div class="set-row">
+      <span class="set-k">中文翻譯</span>
+      <div class="seg" data-set="zh">
+        <button data-v="show">顯示</button><button data-v="tap">點一下才顯示</button>
+      </div>
+    </div>
+    <div class="set-row">
+      <span class="set-k">朗讀速度</span>
+      <div class="seg" data-set="rate">
+        <button data-v="0.7">慢</button><button data-v="0.9">中</button><button data-v="1.05">正常</button>
+      </div>
+    </div>
+    <div class="set-row">
+      <span class="set-k">外觀</span>
+      <div class="seg" data-set="theme">
+        <button data-v="system">跟隨系統</button><button data-v="light">淺色</button><button data-v="dark">深色</button>
+      </div>
+    </div>
+    <p class="set-note" id="voice-note">朗讀使用瀏覽器內建的日文語音。</p>
+  </div>
+</header>
+<div class="scrim" data-act="menu-close" hidden></div>
+<div class="shell">
+  <nav class="side" id="side" aria-label="課程目錄"></nav>
+  <main id="main" tabindex="-1"></main>
+  <aside class="outline" id="outline" aria-label="本頁目錄"></aside>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script src="js/core.js"></script>
+<script src="js/data/works.js"></script>
+<script src="js/data/pages.js"></script>
+<script src="js/data/s0.js"></script>
+<script src="js/data/s1.js"></script>
+<script src="js/data/s1b.js"></script>
+<script src="js/data/s2.js"></script>
+<script src="js/data/s2b.js"></script>
+<script src="js/data/s3.js"></script>
+<script src="js/data/s3b.js"></script>
+<script src="js/data/s4.js"></script>
+<script src="js/data/s4b.js"></script>
+<script src="js/data/s5.js"></script>
+<script src="js/data/s5b.js"></script>
+<script src="js/data/s5c.js"></script>
+<script src="js/data/s6.js"></script>
+<script src="js/data/s7.js"></script>
+<script src="js/data/s8.js"></script>
+<script src="js/data/s8b.js"></script>
+<script src="js/data/s8c.js"></script>
+<script src="js/data/s1c.js"></script>
+<script src="js/data/s1d.js"></script>
+<script src="js/data/s2c.js"></script>
+<script src="js/data/s2d.js"></script>
+<script src="js/data/s3c.js"></script>
+<script src="js/data/s3d.js"></script>
+<script src="js/data/s4c.js"></script>
+<script src="js/data/s5d.js"></script>
+<script src="js/data/s6c.js"></script>
+<script src="js/data/s7b.js"></script>
+<script src="js/data/s8d.js"></script>
+<script src="js/data/s0c.js"></script>
+<script src="js/data/s9.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
